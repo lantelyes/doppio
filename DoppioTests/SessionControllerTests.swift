@@ -212,3 +212,19 @@ final class RemainingTimeFormatterTests: XCTestCase {
         XCTAssertEqual(RemainingTimeFormatter.string(for: 2 * 3600 + 5 * 60), "2 hr 5 min left")
     }
 }
+
+/// End-to-end with the real timer and a real IOKit assertion.
+@MainActor
+final class RealTimerSessionTests: XCTestCase {
+    func testTimedSessionExpiresOnItsOwn() async {
+        let session = SessionController(preventer: AssertionSleepPreventer(), scheduler: TimerExpiryScheduler())
+        let ended = expectation(description: "session ended")
+
+        session.start(.timed(0.3))
+        XCTAssertTrue(session.isActive, "the system refused the power assertion")
+        session.onChange = { ended.fulfill() }
+
+        await fulfillment(of: [ended], timeout: 5)
+        XCTAssertFalse(session.isActive)
+    }
+}

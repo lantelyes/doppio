@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3183835BD5BC8D34F0A1C5B7 /* Shortcuts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F4E5563560BE6CC45309CB3 /* Shortcuts.swift */; };
+		36EAE5108AD3E78C0F25BD30 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16288718FDF0411EC3DC2E7F /* SettingsView.swift */; };
+		7130F77962700A7DA3FA60C8 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54A8638DECD2C9E59CC25A /* SettingsWindowController.swift */; };
 		74A5AE04AF7FD1AFEE151646 /* ExpiryScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E68F40394A69BCCE388AF /* ExpiryScheduler.swift */; };
+		89BC3AF86F75DA8465002E93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8CCA609E6822C474CAB105B /* Assets.xcassets */; };
 		9AE10F97E0EE2398A1A3616C /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7AF809611A08B35965AD1A /* SessionController.swift */; };
+		AF869A027E9F8C24BF202B18 /* LaunchAtLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86757F5179A3BF4AE61EAB1 /* LaunchAtLogin.swift */; };
 		B1B46D5536EFE2BC6E3B8033 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DE290AE66BE51B86098306 /* main.swift */; };
 		BCB7510E5C1A176EA45CEDB5 /* SessionControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B543CA881B6362BF7DB837 /* SessionControllerTests.swift */; };
 		C460628A22DC7A80CAB5FC50 /* SleepPreventer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2F439EAFA88BBB0CC66699 /* SleepPreventer.swift */; };
@@ -33,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		06090736B8A7636F2F411D7B /* RemainingTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemainingTimeFormatter.swift; sourceTree = "<group>"; };
+		16288718FDF0411EC3DC2E7F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1A2F439EAFA88BBB0CC66699 /* SleepPreventer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepPreventer.swift; sourceTree = "<group>"; };
 		1A7AF809611A08B35965AD1A /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		31C545F9C68BF68674E91ADE /* DoppioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DoppioTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,10 +48,14 @@
 		4E1CDBCC227A4D95AAFA51F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		530F847359B9CFBD990B67C6 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		57DE290AE66BE51B86098306 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		6F4E5563560BE6CC45309CB3 /* Shortcuts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcuts.swift; sourceTree = "<group>"; };
 		85A748DC147541BE0F5DADDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6B543CA881B6362BF7DB837 /* SessionControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControllerTests.swift; sourceTree = "<group>"; };
 		B8C20D6E46D59E7A2AA71272 /* SessionDuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDuration.swift; sourceTree = "<group>"; };
 		C7ECBA7AF5B22294A6D6D946 /* AssertionSleepPreventer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertionSleepPreventer.swift; sourceTree = "<group>"; };
+		C86757F5179A3BF4AE61EAB1 /* LaunchAtLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchAtLogin.swift; sourceTree = "<group>"; };
+		C8CCA609E6822C474CAB105B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA54A8638DECD2C9E59CC25A /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				85A748DC147541BE0F5DADDD /* AppDelegate.swift */,
+				C8CCA609E6822C474CAB105B /* Assets.xcassets */,
 				4E1CDBCC227A4D95AAFA51F9 /* Info.plist */,
 				57DE290AE66BE51B86098306 /* main.swift */,
 				832C02300894816EDCE36E1F /* MenuBar */,
@@ -131,7 +142,11 @@
 		DB214E16B8BADC01E6FEAA8A /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				C86757F5179A3BF4AE61EAB1 /* LaunchAtLogin.swift */,
 				371E89D6A22FC5586CAB6BED /* SettingsStore.swift */,
+				16288718FDF0411EC3DC2E7F /* SettingsView.swift */,
+				CA54A8638DECD2C9E59CC25A /* SettingsWindowController.swift */,
+				6F4E5563560BE6CC45309CB3 /* Shortcuts.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -144,6 +159,7 @@
 			buildConfigurationList = 37DF7F53261D47A31CE89F73 /* Build configuration list for PBXNativeTarget "Doppio" */;
 			buildPhases = (
 				328732C399197B86630E63D3 /* Sources */,
+				C81DE22EFD33B24DA4693868 /* Resources */,
 				46C82E3E9E86F804B4E17858 /* Frameworks */,
 			);
 			buildRules = (
@@ -218,6 +234,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		C81DE22EFD33B24DA4693868 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				89BC3AF86F75DA8465002E93 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		328732C399197B86630E63D3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -226,10 +253,14 @@
 				E061CE903023797ED5B7AFF4 /* AppDelegate.swift in Sources */,
 				DD89D0381506A64D1E4E9AA6 /* AssertionSleepPreventer.swift in Sources */,
 				74A5AE04AF7FD1AFEE151646 /* ExpiryScheduler.swift in Sources */,
+				AF869A027E9F8C24BF202B18 /* LaunchAtLogin.swift in Sources */,
 				E4B1A13FF1860B424C6A5B3C /* RemainingTimeFormatter.swift in Sources */,
 				9AE10F97E0EE2398A1A3616C /* SessionController.swift in Sources */,
 				F3B7FD01BFEAE59441A0C7DA /* SessionDuration.swift in Sources */,
 				FE9E0B38FD5A2FF01F376EE9 /* SettingsStore.swift in Sources */,
+				36EAE5108AD3E78C0F25BD30 /* SettingsView.swift in Sources */,
+				7130F77962700A7DA3FA60C8 /* SettingsWindowController.swift in Sources */,
+				3183835BD5BC8D34F0A1C5B7 /* Shortcuts.swift in Sources */,
 				C460628A22DC7A80CAB5FC50 /* SleepPreventer.swift in Sources */,
 				C56660C77A72D08872A09264 /* StatusItemController.swift in Sources */,
 				B1B46D5536EFE2BC6E3B8033 /* main.swift in Sources */,
