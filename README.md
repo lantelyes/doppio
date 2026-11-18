@@ -11,7 +11,7 @@
 
 Doppio is a small menu bar app that keeps your Mac from falling asleep. Click the cup to turn it on, click it again to turn it off, or right-click to set a timer.
 
-**[Download Doppio 1.0.0](https://github.com/lantelyes/doppio/releases/download/v1.0.0/Doppio-1.0.0.zip)** · [Website](https://lantelyes.github.io/doppio/)
+**[Download Doppio 1.0.1](https://github.com/lantelyes/doppio/releases/download/v1.0.1/Doppio-1.0.1.zip)** · [Website](https://lantelyes.github.io/doppio/)
 
 ## What it does
 
@@ -34,7 +34,7 @@ It has no Dock icon, no account, no analytics, and makes no network connections.
 
 ## Install
 
-1. Download [Doppio-1.0.0.zip](https://github.com/lantelyes/doppio/releases/download/v1.0.0/Doppio-1.0.0.zip) and unzip it.
+1. Download [Doppio-1.0.1.zip](https://github.com/lantelyes/doppio/releases/download/v1.0.1/Doppio-1.0.1.zip) and unzip it.
 2. Drag **Doppio** into your Applications folder and open it.
 3. macOS will block the first launch, because Doppio isn't notarized by Apple. Open **System Settings → Privacy & Security**, scroll down, and click **Open Anyway**. You only need to do this once.
 
@@ -48,7 +48,7 @@ Doppio needs macOS 14 or later and runs on Apple Silicon and Intel. It is develo
 | Right-click the cup | Open the menu: time remaining, timed sessions, Settings, Quit. |
 | Your shortcut | Same as a left-click, from any app. Record it in Settings. |
 
-The cup is an outline when Doppio is off, and filled with steam when it is on.
+The cup is outlined when Doppio is off and filled when it is on. The icon is the same size in both states.
 
 Doppio prevents *idle* sleep. Closing the lid, choosing Sleep from the Apple menu, or a scheduled sleep will still put your Mac to sleep.
 
