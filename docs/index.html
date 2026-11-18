@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doppio — keep your Mac awake</title>
+<meta name="description" content="Doppio is a small menu bar app that keeps your Mac from falling asleep. Free and open source.">
+<meta name="theme-color" content="#F6F1EA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14100D" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Doppio">
+<meta property="og:description" content="A small menu bar app that keeps your Mac awake.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lantelyes.github.io/doppio/">
+<meta property="og:image" content="https://lantelyes.github.io/doppio/assets/hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg: #F6F1EA;
+  --text: #2B1D16;
+  --muted: #6A5A4E;
+  --line: rgba(43, 29, 22, .22);
+  --button: #2B1D16;
+  --button-text: #F6F1EA;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14100D;
+    --text: #F3E7D7;
+    --muted: #A99A8B;
+    --line: rgba(243, 231, 215, .2);
+    --button: #F3E7D7;
+    --button-text: #201611;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.5 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 3px;
+}
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 4px; }
+
+.page {
+  max-width: 1280px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 56px clamp(24px, 9vw, 120px) 48px;
+  display: flex;
+  flex-direction: column;
+}
+header { display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 600; text-decoration: none; }
+.brand img { width: 30px; height: 30px; display: block; }
+.source { font-size: 14px; }
+
+main {
+  margin-top: clamp(48px, 8vw, 96px);
+  display: grid;
+  grid-template-columns: minmax(0, 540px) minmax(0, 420px);
+  grid-template-areas: "intro shot" "notes shot";
+  column-gap: 72px;
+  align-items: start;
+}
+.intro { grid-area: intro; }
+.lede {
+  margin: 0;
+  font-size: clamp(21px, 2.4vw, 26px);
+  line-height: 1.38;
+  font-weight: 500;
+  letter-spacing: -0.012em;
+}
+.lede span { color: var(--muted); }
+.get { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.button {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--button);
+  color: var(--button-text);
+  text-decoration: none;
+}
+.button:hover { opacity: .88; }
+.meta { font-size: 14px; color: var(--muted); }
+
+.notes { grid-area: notes; margin-top: 80px; display: grid; gap: 28px; }
+.notes h2 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+.notes p { margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* The capture includes the menu's own shadow as transparent padding,
+   so it is pulled up and out to line the menu itself up with the text. */
+.shot { grid-area: shot; margin: -86px -30px 0 0; }
+.shot img { display: block; width: 100%; height: auto; }
+
+footer {
+  margin-top: auto;
+  padding-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+footer nav { display: flex; gap: 20px; }
+
+@media (max-width: 860px) {
+  .page { padding-top: 32px; }
+  main { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "shot" "notes"; }
+  .shot { margin: 0 auto; max-width: 360px; }
+  .notes { margin-top: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<header>
+  <a class="brand" href="./"><img src="assets/icon.svg" alt="">Doppio</a>
+  <a class="source" href="https://github.com/lantelyes/doppio">GitHub</a>
+</header>
+
+<main>
+  <div class="intro">
+    <p class="lede">Doppio sits in your menu bar and keeps your Mac from falling asleep. <span>Click the cup to turn it on. Click it again when you're done. Right-click if you'd rather set a timer.</span></p>
+    <div class="get">
+      <a class="button" href="https://github.com/lantelyes/doppio/releases/download/v1.0.0/Doppio-1.0.0.zip">Download</a>
+      <span class="meta">Version 1.0.0 · 595 KB · macOS 14 or later</span>
+    </div>
+  </div>
+
+  <div class="shot">
+    <img src="assets/menu.png" width="358" height="470" alt="Doppio's menu: Awake, 30 min left; Turn Off; durations from 15 minutes to 8 hours and Indefinitely; Settings; Quit Doppio.">
+  </div>
+
+  <div class="notes">
+    <section>
+      <h2>First launch</h2>
+      <p>Doppio isn't notarized by Apple, so macOS blocks it the first time you open it. Go to System Settings, then Privacy &amp; Security, and click Open Anyway. You only need to do this once.</p>
+    </section>
+    <section>
+      <h2>Good to know</h2>
+      <p>Free and open source under the MIT licence. No account, no analytics, no network access. Runs on Apple Silicon and Intel.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <span>Made by lantelyes</span>
+  <nav>
+    <a href="https://github.com/lantelyes/doppio">Source</a>
+    <a href="https://github.com/lantelyes/doppio/releases">Releases</a>
+  </nav>
+</footer>
+
+</div>
+</body>
+</html>
