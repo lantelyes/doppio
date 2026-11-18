@@ -1,75 +1,55 @@
 import KeyboardShortcuts
 import SwiftUI
 
-/// The "Header" layout: app identity on top, one grouped list of controls,
-/// and a hint underneath.
+/// The "Sections" layout: three titled groups in the System Settings style.
 struct SettingsView: View {
     @Bindable var settings: SettingsStore
 
     @State private var launchAtLogin = LaunchAtLogin.isEnabled
     @State private var launchAtLoginError: String?
 
-    private var version: String {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-    }
-
     var body: some View {
-        VStack(spacing: 0) {
-            header
-                .padding(.top, 20)
-
-            Form {
-                Section {
-                    Toggle("Launch at login", isOn: $launchAtLogin)
-
-                    Toggle(isOn: $settings.allowDisplaySleep) {
-                        Text("Allow display to sleep")
-                        Text("The Mac stays awake but the screen can turn off.")
-                    }
-
-                    Picker("Left-click starts", selection: $settings.defaultDuration) {
-                        Text(SessionDuration.indefinite.title).tag(SessionDuration.indefinite)
-                        Divider()
-                        ForEach(SessionDuration.presets, id: \.self) { duration in
-                            Text(duration.title).tag(duration)
-                        }
-                    }
-
-                    KeyboardShortcuts.Recorder("Toggle shortcut", name: .toggleSession)
-                } footer: {
-                    if let launchAtLoginError {
-                        Text(launchAtLoginError)
-                            .foregroundStyle(.red)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                    }
+        Form {
+            Section {
+                Toggle("Launch at login", isOn: $launchAtLogin)
+            } header: {
+                Text("Startup")
+            } footer: {
+                if let launchAtLoginError {
+                    Text(launchAtLoginError)
+                        .foregroundStyle(.red)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
-            .formStyle(.grouped)
-            .scrollDisabled(true)
-            .fixedSize(horizontal: false, vertical: true)
 
-            Text("Right-click the menu bar icon for timed sessions.")
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .padding(.bottom, 20)
+            Section("Sessions") {
+                Picker(selection: $settings.defaultDuration) {
+                    Text(SessionDuration.indefinite.title).tag(SessionDuration.indefinite)
+                    Divider()
+                    ForEach(SessionDuration.presets, id: \.self) { duration in
+                        Text(duration.title).tag(duration)
+                    }
+                } label: {
+                    Text("Left-click starts")
+                    Text("Right-click the icon for other durations.")
+                }
+
+                Toggle(isOn: $settings.allowDisplaySleep) {
+                    Text("Allow display to sleep")
+                    Text("The Mac stays awake but the screen can turn off.")
+                }
+            }
+
+            Section("Shortcut") {
+                KeyboardShortcuts.Recorder("Turn Doppio on or off", name: .toggleSession)
+            }
         }
-        .frame(width: 440)
+        .formStyle(.grouped)
+        .scrollDisabled(true)
+        .fixedSize(horizontal: false, vertical: true)
+        .frame(width: 400)
         .onChange(of: launchAtLogin) { _, newValue in
             setLaunchAtLogin(newValue)
-        }
-    }
-
-    private var header: some View {
-        VStack(spacing: 4) {
-            Image(nsImage: NSApp.applicationIconImage)
-                .resizable()
-                .frame(width: 64, height: 64)
-                .accessibilityHidden(true)
-            Text("Doppio")
-                .font(.headline)
-            Text("Version \(version)")
-                .font(.caption)
-                .foregroundStyle(.secondary)
         }
     }
 
