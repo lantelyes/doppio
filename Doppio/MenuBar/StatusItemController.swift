@@ -37,8 +37,8 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         if let button = statusItem.button {
             button.image = Self.icon(active: active)
             button.toolTip = active
-                ? "Doppio is keeping your Mac awake. Click to turn off."
-                : "Doppio is off. Click to keep your Mac awake."
+                ? "Doppio is keeping your Mac awake. Click to turn it off."
+                : "Doppio is off. Click to keep your Mac awake, or right-click to set a timer."
             button.setAccessibilityValue(active ? "On" : "Off")
         }
         refreshMenuItems()
@@ -91,7 +91,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
         toggleItem = toggle
 
         menu.addItem(.separator())
-        menu.addItem(.sectionHeader(title: "Keep Awake For"))
+        menu.addItem(.sectionHeader(title: "Keep Awake"))
 
         durationItems = (SessionDuration.presets + [.indefinite]).enumerated().map { index, duration in
             let item = NSMenuItem(title: duration.title, action: #selector(startSession(_:)), keyEquivalent: "")

@@ -11,7 +11,7 @@ struct SettingsView: View {
     var body: some View {
         Form {
             Section {
-                Toggle("Launch at login", isOn: $launchAtLogin)
+                Toggle("Open at login", isOn: $launchAtLogin)
             } header: {
                 Text("Startup")
             } footer: {
@@ -30,13 +30,13 @@ struct SettingsView: View {
                         Text(duration.title).tag(duration)
                     }
                 } label: {
-                    Text("Left-click starts")
-                    Text("Right-click the icon for other durations.")
+                    Text("Default duration")
+                    Text("Used when you click the cup or press the shortcut. Right-click the cup for other durations.")
                 }
 
                 Toggle(isOn: $settings.allowDisplaySleep) {
                     Text("Allow display to sleep")
-                    Text("The Mac stays awake but the screen can turn off.")
+                    Text("Your Mac stays awake, but the display can turn off.")
                 }
             }
 
@@ -60,7 +60,7 @@ struct SettingsView: View {
             try LaunchAtLogin.setEnabled(enabled)
             launchAtLoginError = nil
         } catch {
-            launchAtLoginError = "Couldn't change the login item: \(error.localizedDescription)"
+            launchAtLoginError = "Couldn’t change Open at login: \(error.localizedDescription)"
             launchAtLogin = LaunchAtLogin.isEnabled
         }
     }
